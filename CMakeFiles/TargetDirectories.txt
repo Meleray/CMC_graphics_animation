@@ -1,0 +1,3 @@
+/home/mk/Documents/CMC/SEM_6/Graphics/OpenGL-template/CMakeFiles/rebuild_cache.dir
+/home/mk/Documents/CMC/SEM_6/Graphics/OpenGL-template/CMakeFiles/edit_cache.dir
+/home/mk/Documents/CMC/SEM_6/Graphics/OpenGL-template/CMakeFiles/main.dir

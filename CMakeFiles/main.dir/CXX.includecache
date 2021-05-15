@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/mk/Documents/CMC/SEM_6/Graphics/OpenGL-template/src/main.cpp
+glm/glm.hpp
+-
+GL/glew.h
+-
+SDL2/SDL.h
+-
+renderer.h
+/home/mk/Documents/CMC/SEM_6/Graphics/OpenGL-template/src/renderer.h
+
+/home/mk/Documents/CMC/SEM_6/Graphics/OpenGL-template/src/renderer.cpp
+renderer.h
+/home/mk/Documents/CMC/SEM_6/Graphics/OpenGL-template/src/renderer.h
+string
+-
+iostream
+-
+fstream
+-
+sstream
+-
+
+/home/mk/Documents/CMC/SEM_6/Graphics/OpenGL-template/src/renderer.h
+glm/glm.hpp
+-
+GL/glew.h
+-
+SDL2/SDL.h
+-
+

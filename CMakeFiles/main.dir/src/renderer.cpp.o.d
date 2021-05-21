@@ -295,7 +295,13 @@ CMakeFiles/main.dir/src/renderer.cpp.o: \
  /usr/include/SDL2/SDL_render.h /usr/include/SDL2/SDL_shape.h \
  /usr/include/SDL2/SDL_system.h /usr/include/SDL2/SDL_timer.h \
  /usr/include/SDL2/SDL_version.h /usr/include/SDL2/SDL_locale.h \
- /usr/include/SDL2/SDL_misc.h /usr/include/c++/10.2.0/string \
+ /usr/include/SDL2/SDL_misc.h /usr/include/c++/10.2.0/chrono \
+ /usr/include/c++/10.2.0/ratio /usr/include/c++/10.2.0/ctime \
+ /usr/include/time.h /usr/include/bits/time.h /usr/include/bits/timex.h \
+ /usr/include/bits/types/struct_tm.h \
+ /usr/include/bits/types/struct_itimerspec.h \
+ /usr/include/c++/10.2.0/bits/parse_numbers.h \
+ /usr/include/c++/10.2.0/bits/int_limits.h /usr/include/c++/10.2.0/string \
  /usr/include/c++/10.2.0/bits/stringfwd.h \
  /usr/include/c++/10.2.0/bits/memoryfwd.h \
  /usr/include/c++/10.2.0/bits/char_traits.h \
@@ -324,16 +330,13 @@ CMakeFiles/main.dir/src/renderer.cpp.o: \
  /usr/include/c++/10.2.0/bits/iterator_concepts.h \
  /usr/include/c++/10.2.0/concepts \
  /usr/include/c++/10.2.0/bits/range_cmp.h \
- /usr/include/c++/10.2.0/bits/int_limits.h \
  /usr/include/c++/10.2.0/bits/basic_string.h \
  /usr/include/c++/10.2.0/ext/atomicity.h \
  /usr/include/c++/10.2.0/x86_64-pc-linux-gnu/bits/gthr.h \
  /usr/include/c++/10.2.0/x86_64-pc-linux-gnu/bits/gthr-default.h \
  /usr/include/pthread.h /usr/include/sched.h /usr/include/bits/sched.h \
  /usr/include/bits/types/struct_sched_param.h /usr/include/bits/cpu-set.h \
- /usr/include/time.h /usr/include/bits/time.h /usr/include/bits/timex.h \
- /usr/include/bits/types/struct_tm.h \
- /usr/include/bits/types/struct_itimerspec.h /usr/include/bits/setjmp.h \
+ /usr/include/bits/setjmp.h \
  /usr/include/bits/types/struct___jmp_buf_tag.h \
  /usr/include/c++/10.2.0/x86_64-pc-linux-gnu/bits/atomic_word.h \
  /usr/include/c++/10.2.0/ext/alloc_traits.h \
@@ -373,4 +376,17 @@ CMakeFiles/main.dir/src/renderer.cpp.o: \
  /usr/include/c++/10.2.0/x86_64-pc-linux-gnu/bits/basic_file.h \
  /usr/include/c++/10.2.0/x86_64-pc-linux-gnu/bits/c++io.h \
  /usr/include/c++/10.2.0/bits/fstream.tcc /usr/include/c++/10.2.0/sstream \
- /usr/include/c++/10.2.0/bits/sstream.tcc
+ /usr/include/c++/10.2.0/bits/sstream.tcc \
+ /usr/include/glm/gtc/matrix_transform.hpp \
+ /usr/include/glm/ext/matrix_projection.hpp \
+ /usr/include/glm/gtc/constants.hpp \
+ /usr/include/glm/ext/scalar_constants.hpp \
+ /usr/include/glm/ext/scalar_constants.inl \
+ /usr/include/glm/gtc/constants.inl \
+ /usr/include/glm/ext/matrix_projection.inl \
+ /usr/include/glm/ext/matrix_clip_space.hpp \
+ /usr/include/glm/ext/matrix_clip_space.inl \
+ /usr/include/glm/ext/matrix_transform.hpp \
+ /usr/include/glm/ext/matrix_transform.inl \
+ /usr/include/glm/gtc/matrix_transform.inl \
+ /usr/include/glm/gtx/transform.hpp /usr/include/glm/gtx/transform.inl

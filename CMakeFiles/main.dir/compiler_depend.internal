@@ -391,6 +391,16 @@ CMakeFiles/main.dir/src/main.cpp.o
  /usr/include/SDL2/SDL_locale.h
  /usr/include/SDL2/SDL_misc.h
  /home/mk/Documents/CMC/SEM_6/Graphics/OpenGL-template/src/renderer.h
+ /usr/include/c++/10.2.0/chrono
+ /usr/include/c++/10.2.0/ratio
+ /usr/include/c++/10.2.0/ctime
+ /usr/include/time.h
+ /usr/include/bits/time.h
+ /usr/include/bits/timex.h
+ /usr/include/bits/types/struct_tm.h
+ /usr/include/bits/types/struct_itimerspec.h
+ /usr/include/c++/10.2.0/bits/parse_numbers.h
+ /usr/include/c++/10.2.0/bits/int_limits.h
 
 CMakeFiles/main.dir/src/renderer.cpp.o
  /home/mk/Documents/CMC/SEM_6/Graphics/OpenGL-template/src/renderer.cpp
@@ -782,6 +792,16 @@ CMakeFiles/main.dir/src/renderer.cpp.o
  /usr/include/SDL2/SDL_version.h
  /usr/include/SDL2/SDL_locale.h
  /usr/include/SDL2/SDL_misc.h
+ /usr/include/c++/10.2.0/chrono
+ /usr/include/c++/10.2.0/ratio
+ /usr/include/c++/10.2.0/ctime
+ /usr/include/time.h
+ /usr/include/bits/time.h
+ /usr/include/bits/timex.h
+ /usr/include/bits/types/struct_tm.h
+ /usr/include/bits/types/struct_itimerspec.h
+ /usr/include/c++/10.2.0/bits/parse_numbers.h
+ /usr/include/c++/10.2.0/bits/int_limits.h
  /usr/include/c++/10.2.0/string
  /usr/include/c++/10.2.0/bits/stringfwd.h
  /usr/include/c++/10.2.0/bits/memoryfwd.h
@@ -815,7 +835,6 @@ CMakeFiles/main.dir/src/renderer.cpp.o
  /usr/include/c++/10.2.0/bits/iterator_concepts.h
  /usr/include/c++/10.2.0/concepts
  /usr/include/c++/10.2.0/bits/range_cmp.h
- /usr/include/c++/10.2.0/bits/int_limits.h
  /usr/include/c++/10.2.0/bits/basic_string.h
  /usr/include/c++/10.2.0/ext/atomicity.h
  /usr/include/c++/10.2.0/x86_64-pc-linux-gnu/bits/gthr.h
@@ -825,11 +844,6 @@ CMakeFiles/main.dir/src/renderer.cpp.o
  /usr/include/bits/sched.h
  /usr/include/bits/types/struct_sched_param.h
  /usr/include/bits/cpu-set.h
- /usr/include/time.h
- /usr/include/bits/time.h
- /usr/include/bits/timex.h
- /usr/include/bits/types/struct_tm.h
- /usr/include/bits/types/struct_itimerspec.h
  /usr/include/bits/setjmp.h
  /usr/include/bits/types/struct___jmp_buf_tag.h
  /usr/include/c++/10.2.0/x86_64-pc-linux-gnu/bits/atomic_word.h
@@ -882,4 +896,18 @@ CMakeFiles/main.dir/src/renderer.cpp.o
  /usr/include/c++/10.2.0/bits/fstream.tcc
  /usr/include/c++/10.2.0/sstream
  /usr/include/c++/10.2.0/bits/sstream.tcc
+ /usr/include/glm/gtc/matrix_transform.hpp
+ /usr/include/glm/ext/matrix_projection.hpp
+ /usr/include/glm/gtc/constants.hpp
+ /usr/include/glm/ext/scalar_constants.hpp
+ /usr/include/glm/ext/scalar_constants.inl
+ /usr/include/glm/gtc/constants.inl
+ /usr/include/glm/ext/matrix_projection.inl
+ /usr/include/glm/ext/matrix_clip_space.hpp
+ /usr/include/glm/ext/matrix_clip_space.inl
+ /usr/include/glm/ext/matrix_transform.hpp
+ /usr/include/glm/ext/matrix_transform.inl
+ /usr/include/glm/gtc/matrix_transform.inl
+ /usr/include/glm/gtx/transform.hpp
+ /usr/include/glm/gtx/transform.inl
 

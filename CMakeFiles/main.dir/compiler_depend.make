@@ -389,7 +389,17 @@ CMakeFiles/main.dir/src/main.cpp.o: src/main.cpp \
   /usr/include/SDL2/SDL_version.h \
   /usr/include/SDL2/SDL_locale.h \
   /usr/include/SDL2/SDL_misc.h \
-  src/renderer.h
+  src/renderer.h \
+  /usr/include/c++/10.2.0/chrono \
+  /usr/include/c++/10.2.0/ratio \
+  /usr/include/c++/10.2.0/ctime \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/c++/10.2.0/bits/parse_numbers.h \
+  /usr/include/c++/10.2.0/bits/int_limits.h
 
 CMakeFiles/main.dir/src/renderer.cpp.o: src/renderer.cpp \
   /usr/include/stdc-predef.h \
@@ -780,6 +790,16 @@ CMakeFiles/main.dir/src/renderer.cpp.o: src/renderer.cpp \
   /usr/include/SDL2/SDL_version.h \
   /usr/include/SDL2/SDL_locale.h \
   /usr/include/SDL2/SDL_misc.h \
+  /usr/include/c++/10.2.0/chrono \
+  /usr/include/c++/10.2.0/ratio \
+  /usr/include/c++/10.2.0/ctime \
+  /usr/include/time.h \
+  /usr/include/bits/time.h \
+  /usr/include/bits/timex.h \
+  /usr/include/bits/types/struct_tm.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/c++/10.2.0/bits/parse_numbers.h \
+  /usr/include/c++/10.2.0/bits/int_limits.h \
   /usr/include/c++/10.2.0/string \
   /usr/include/c++/10.2.0/bits/stringfwd.h \
   /usr/include/c++/10.2.0/bits/memoryfwd.h \
@@ -813,7 +833,6 @@ CMakeFiles/main.dir/src/renderer.cpp.o: src/renderer.cpp \
   /usr/include/c++/10.2.0/bits/iterator_concepts.h \
   /usr/include/c++/10.2.0/concepts \
   /usr/include/c++/10.2.0/bits/range_cmp.h \
-  /usr/include/c++/10.2.0/bits/int_limits.h \
   /usr/include/c++/10.2.0/bits/basic_string.h \
   /usr/include/c++/10.2.0/ext/atomicity.h \
   /usr/include/c++/10.2.0/x86_64-pc-linux-gnu/bits/gthr.h \
@@ -823,11 +842,6 @@ CMakeFiles/main.dir/src/renderer.cpp.o: src/renderer.cpp \
   /usr/include/bits/sched.h \
   /usr/include/bits/types/struct_sched_param.h \
   /usr/include/bits/cpu-set.h \
-  /usr/include/time.h \
-  /usr/include/bits/time.h \
-  /usr/include/bits/timex.h \
-  /usr/include/bits/types/struct_tm.h \
-  /usr/include/bits/types/struct_itimerspec.h \
   /usr/include/bits/setjmp.h \
   /usr/include/bits/types/struct___jmp_buf_tag.h \
   /usr/include/c++/10.2.0/x86_64-pc-linux-gnu/bits/atomic_word.h \
@@ -879,8 +893,30 @@ CMakeFiles/main.dir/src/renderer.cpp.o: src/renderer.cpp \
   /usr/include/c++/10.2.0/x86_64-pc-linux-gnu/bits/c++io.h \
   /usr/include/c++/10.2.0/bits/fstream.tcc \
   /usr/include/c++/10.2.0/sstream \
-  /usr/include/c++/10.2.0/bits/sstream.tcc
+  /usr/include/c++/10.2.0/bits/sstream.tcc \
+  /usr/include/glm/gtc/matrix_transform.hpp \
+  /usr/include/glm/ext/matrix_projection.hpp \
+  /usr/include/glm/gtc/constants.hpp \
+  /usr/include/glm/ext/scalar_constants.hpp \
+  /usr/include/glm/ext/scalar_constants.inl \
+  /usr/include/glm/gtc/constants.inl \
+  /usr/include/glm/ext/matrix_projection.inl \
+  /usr/include/glm/ext/matrix_clip_space.hpp \
+  /usr/include/glm/ext/matrix_clip_space.inl \
+  /usr/include/glm/ext/matrix_transform.hpp \
+  /usr/include/glm/ext/matrix_transform.inl \
+  /usr/include/glm/gtc/matrix_transform.inl \
+  /usr/include/glm/gtx/transform.hpp \
+  /usr/include/glm/gtx/transform.inl
 
+
+/usr/include/glm/ext/matrix_clip_space.hpp:
+
+/usr/include/glm/ext/scalar_constants.inl:
+
+/usr/include/glm/ext/scalar_constants.hpp:
+
+/usr/include/glm/gtc/constants.hpp:
 
 /usr/include/c++/10.2.0/bits/sstream.tcc:
 
@@ -940,23 +976,13 @@ CMakeFiles/main.dir/src/renderer.cpp.o: src/renderer.cpp \
 
 /usr/include/c++/10.2.0/ext/alloc_traits.h:
 
-/usr/include/c++/10.2.0/x86_64-pc-linux-gnu/bits/atomic_word.h:
-
 /usr/include/bits/setjmp.h:
-
-/usr/include/bits/types/struct_itimerspec.h:
-
-/usr/include/bits/timex.h:
-
-/usr/include/bits/time.h:
 
 /usr/include/c++/10.2.0/bits/basic_string.tcc:
 
 /usr/include/bits/cpu-set.h:
 
 /usr/include/c++/10.2.0/ext/atomicity.h:
-
-/usr/include/c++/10.2.0/bits/int_limits.h:
 
 /usr/include/c++/10.2.0/bits/iterator_concepts.h:
 
@@ -990,9 +1016,27 @@ CMakeFiles/main.dir/src/renderer.cpp.o: src/renderer.cpp \
 
 src/renderer.cpp:
 
+/usr/include/c++/10.2.0/bits/int_limits.h:
+
+/usr/include/c++/10.2.0/bits/parse_numbers.h:
+
+/usr/include/bits/types/struct_itimerspec.h:
+
+/usr/include/bits/timex.h:
+
+/usr/include/bits/time.h:
+
+/usr/include/c++/10.2.0/ctime:
+
+/usr/include/c++/10.2.0/x86_64-pc-linux-gnu/bits/atomic_word.h:
+
+/usr/include/c++/10.2.0/chrono:
+
 /usr/include/SDL2/SDL_misc.h:
 
 /usr/include/SDL2/SDL_locale.h:
+
+/usr/include/glm/gtc/constants.inl:
 
 /usr/include/SDL2/SDL_timer.h:
 
@@ -1007,6 +1051,8 @@ src/renderer.cpp:
 /usr/include/SDL2/SDL_messagebox.h:
 
 /usr/include/SDL2/SDL_log.h:
+
+/usr/include/glm/ext/matrix_projection.hpp:
 
 /usr/include/SDL2/SDL_touch.h:
 
@@ -1132,6 +1178,8 @@ src/renderer.h:
 
 /usr/include/SDL2/SDL_thread.h:
 
+/usr/include/glm/ext/matrix_transform.hpp:
+
 /usr/include/SDL2/SDL_mutex.h:
 
 /usr/include/SDL2/SDL_error.h:
@@ -1143,6 +1191,8 @@ src/renderer.h:
 /usr/include/SDL2/SDL_gesture.h:
 
 /usr/include/ctype.h:
+
+/usr/include/glm/ext/matrix_projection.inl:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/pconfigintrin.h:
 
@@ -1172,6 +1222,8 @@ src/renderer.h:
 
 /usr/include/glm/ext/vector_float2.hpp:
 
+/usr/include/glm/gtx/transform.hpp:
+
 /usr/include/glm/ext/scalar_uint_sized.hpp:
 
 /usr/include/glm/ext/matrix_double3x2_precision.hpp:
@@ -1185,6 +1237,8 @@ src/renderer.h:
 /usr/include/glm/ext/vector_bool2.hpp:
 
 /usr/include/glm/vec2.hpp:
+
+/usr/include/glm/ext/matrix_clip_space.inl:
 
 /usr/include/glm/detail/setup.hpp:
 
@@ -1220,6 +1274,8 @@ src/renderer.h:
 
 /usr/include/c++/10.2.0/cassert:
 
+/usr/include/glm/gtc/matrix_transform.hpp:
+
 /usr/include/c++/10.2.0/cwctype:
 
 /usr/include/glm/simd/platform.h:
@@ -1231,6 +1287,8 @@ src/renderer.h:
 /usr/include/bits/stdio.h:
 
 /usr/include/glm/ext/vector_float2_precision.hpp:
+
+/usr/include/c++/10.2.0/ratio:
 
 /usr/include/c++/10.2.0/cstddef:
 
@@ -1528,6 +1586,8 @@ src/main.cpp:
 
 /usr/include/glm/ext/vector_uint3_sized.hpp:
 
+/usr/include/glm/gtx/transform.inl:
+
 /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/avx512vpopcntdqintrin.h:
 
 /usr/include/glm/detail/type_mat4x3.inl:
@@ -1539,6 +1599,8 @@ src/main.cpp:
 /usr/include/SDL2/SDL_endian.h:
 
 /usr/include/bits/types/time_t.h:
+
+/usr/include/glm/ext/matrix_transform.inl:
 
 /usr/include/glm/ext/matrix_float3x3.hpp:
 
@@ -1687,6 +1749,8 @@ src/main.cpp:
 /usr/include/glm/detail/type_mat2x2.hpp:
 
 /usr/include/glm/mat2x3.hpp:
+
+/usr/include/glm/gtc/matrix_transform.inl:
 
 /usr/include/glm/detail/qualifier.hpp:
 

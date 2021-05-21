@@ -294,4 +294,11 @@ CMakeFiles/main.dir/src/main.cpp.o: \
  /usr/include/SDL2/SDL_system.h /usr/include/SDL2/SDL_timer.h \
  /usr/include/SDL2/SDL_version.h /usr/include/SDL2/SDL_locale.h \
  /usr/include/SDL2/SDL_misc.h \
- /home/mk/Documents/CMC/SEM_6/Graphics/OpenGL-template/src/renderer.h
+ /home/mk/Documents/CMC/SEM_6/Graphics/OpenGL-template/src/renderer.h \
+ /usr/include/c++/10.2.0/chrono /usr/include/c++/10.2.0/ratio \
+ /usr/include/c++/10.2.0/ctime /usr/include/time.h \
+ /usr/include/bits/time.h /usr/include/bits/timex.h \
+ /usr/include/bits/types/struct_tm.h \
+ /usr/include/bits/types/struct_itimerspec.h \
+ /usr/include/c++/10.2.0/bits/parse_numbers.h \
+ /usr/include/c++/10.2.0/bits/int_limits.h

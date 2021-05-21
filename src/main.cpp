@@ -50,9 +50,11 @@ int main()
                 process_input(window,event);
             }
         }
+        glEnable(GL_DEPTH_TEST);
+        glDepthFunc(GL_LESS);
         // Заливка кадра чёрным цветом средствами OpenGL
-        glClearColor(1,0,0,1);
-        glClear(GL_COLOR_BUFFER_BIT);
+        glClearColor(0.0f, 0.0f, 0.5f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         // Обновление и рисование сцены
         renderer.Render();
         // В конце - вывод нарисованного кадра в окно на экране

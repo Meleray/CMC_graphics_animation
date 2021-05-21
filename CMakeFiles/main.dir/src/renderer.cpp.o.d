@@ -389,4 +389,5 @@ CMakeFiles/main.dir/src/renderer.cpp.o: \
  /usr/include/glm/ext/matrix_transform.hpp \
  /usr/include/glm/ext/matrix_transform.inl \
  /usr/include/glm/gtc/matrix_transform.inl \
- /usr/include/glm/gtx/transform.hpp /usr/include/glm/gtx/transform.inl
+ /usr/include/glm/gtx/transform.hpp /usr/include/glm/gtx/transform.inl \
+ /usr/include/stb/stb_image.h

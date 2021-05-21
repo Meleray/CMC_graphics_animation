@@ -1,0 +1,1 @@
+/bin/g++ -O1  -g  -lX11 -lpthread -lSDL2 -lSDL2_image -lSDL2_mixer -lGL -lGLEW CMakeFiles/main.dir/src/main.cpp.o CMakeFiles/main.dir/src/renderer.cpp.o -o main  /usr/lib/libGL.so /usr/lib/libGLU.so /usr/lib/libSDL2_image.so /usr/lib/libGLEW.so -ldl /usr/lib/libSDL2_mixer.so 

@@ -5,6 +5,8 @@
 #include <sstream>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtx/transform.hpp>
+#define STB_IMAGE_IMPLEMENTATION
+#include <stb/stb_image.h>
 
 const float FLAG_LENGTH = 0.8;
 const int FLAGH = 15;
@@ -173,7 +175,7 @@ const int FLAGW = 24;
             int col = i / FLAGH;
             int row = i % FLAGH;
             texCoord[2 * i + 8 * 2] = col * 1.0f / (FLAGW - 1);
-            texCoord[2 * i + 8 * 2 + 1] = row * 1.0f / (FLAGH - 1);
+            texCoord[2 * i + 8 * 2 + 1] = 1 - row * 1.0f / (FLAGH - 1);
         }
 
 
@@ -215,12 +217,15 @@ const int FLAGW = 24;
         glBindBuffer(GL_ARRAY_BUFFER, texbuffer);
         glVertexAttribPointer(3, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(GLfloat), (GLvoid*)0);
 
-        int w, h, c;
-        unsigned char* image = stbi_load("assets/Flag_of_Russia.png", &w, &h, &c, STBI_rgb);
+        int wi, he, ch;
+        unsigned char* image = stbi_load("assets/russia-flag-medium.jpg", &wi, &he, &ch, STBI_rgb);
+        if (image == NULL)
+            std::cout << "Cannot load texture\n";
+        std::cout << stbi_failure_reason() << '\n';
         glBindTexture(GL_TEXTURE_2D, texture);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, w, h, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, wi, he, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
         glGenerateMipmap(GL_TEXTURE_2D);
 
     // 4. Отвязываем VAO (НЕ EBO)
@@ -234,8 +239,8 @@ const int FLAGW = 24;
     {
         glm::mat4 Projection = glm::perspective(glm::radians(45.0f), (float) width / (float)height, 0.1f, 100.0f);
         glm::mat4 View = glm::lookAt(
-            glm::vec3(0, 3, -3),
-            glm::vec3(0,0,0),
+            glm::vec3(8, 20, -14),
+            glm::vec3(8,0,6),
             glm::vec3(0,1,0)
         );
         glm::mat4 Model = glm::mat4(1.0f);
@@ -250,7 +255,7 @@ const int FLAGW = 24;
         glUniform1f(glGetUniformLocation(shaderProgram, "time"), dtime - (floor((float)dtime / (2 * M_PI)) * 2 * M_PI));
         glBindTexture(GL_TEXTURE_2D, texture);
         glBindVertexArray(VAO);
-        glDrawElements(GL_TRIANGLES, (FLAGH - 1) * (FLAGW - 1) * 2 * 3 + 6 * 2 * 3, GL_UNSIGNED_INT, 0);
+        glDrawElementsInstanced(GL_TRIANGLES, (FLAGH - 1) * (FLAGW - 1) * 2 * 3 + 6 * 2 * 3, GL_UNSIGNED_INT, 0, 120);
         glBindVertexArray(0);
     }
     void Renderer::Close()

@@ -907,7 +907,8 @@ CMakeFiles/main.dir/src/renderer.cpp.o: src/renderer.cpp \
   /usr/include/glm/ext/matrix_transform.inl \
   /usr/include/glm/gtc/matrix_transform.inl \
   /usr/include/glm/gtx/transform.hpp \
-  /usr/include/glm/gtx/transform.inl
+  /usr/include/glm/gtx/transform.inl \
+  /usr/include/stb/stb_image.h
 
 
 /usr/include/glm/ext/matrix_clip_space.hpp:
@@ -1315,6 +1316,8 @@ src/renderer.h:
 /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/bmiintrin.h:
 
 /usr/include/c++/10.2.0/tr1/beta_function.tcc:
+
+/usr/include/stb/stb_image.h:
 
 /usr/include/c++/10.2.0/bits/predefined_ops.h:
 

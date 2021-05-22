@@ -15,10 +15,10 @@ void main()
 {
     vec2 offs = vec2(gl_InstanceID / 10, gl_InstanceID % 10);
     if (type == 0) {
-        gl_Position =  MVP * vec4(position.x + offs.x * 0.45, position.y, position.z + offs.y * 0.3, 1);
+        gl_Position =  MVP * vec4(position.x + offs.x * 0.4, position.y, position.z + offs.y * 0.3, 1);
         fragmentColor = color;
     } else {
-        gl_Position =  MVP * vec4(position.x + offs.x * 0.45, position.y, position.z + offs.y * 0.3 + position.y * cos(position.y + time) / 5.0, 1);
+        gl_Position =  MVP * vec4(position.x + offs.x * 0.4, position.y, position.z + offs.y * 0.3 + position.y * cos(position.y + time) / 5.0, 1);
         fragmentColor = vec3(-1, -1, -1);
     }
     UV = uv;

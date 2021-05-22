@@ -7,7 +7,6 @@
 #include <glm/gtx/transform.hpp>
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb/stb_image.h>
-#include <SOIL/SOIL.h>
 
 const float GRASS_HEIGHT = 0.8;
 const float GRASS_WIDTH = 0.4;
@@ -196,7 +195,7 @@ const int GRASSW = 11;
         glVertexAttribPointer(3, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(GLfloat), (GLvoid*)0);
 
         int wi, he, ch;
-        unsigned char* image = SOIL_load_image("assets/grass.png", &wi, &he, &ch, SOIL_LOAD_RGBA);
+        unsigned char* image = stbi_load("assets/grass.png", &wi, &he, &ch, 4);
         if (image == NULL)
             std::cout << "Cannot load texture\n";
         std::cout << stbi_failure_reason() << '\n';
@@ -234,7 +233,7 @@ const int GRASSW = 11;
         glBindTexture(GL_TEXTURE_2D, texture);
         glBindVertexArray(VAO);
         glDrawElements(GL_TRIANGLES, 2 * 3, GL_UNSIGNED_INT, 0);
-        glDrawElementsInstanced(GL_TRIANGLES, (GRASSH - 1) * (GRASSW - 1) * 2 * 3, GL_UNSIGNED_INT, (void*)(6 * sizeof(GLuint)), 120);
+        glDrawElementsInstanced(GL_TRIANGLES, (GRASSH - 1) * (GRASSW - 1) * 2 * 3, GL_UNSIGNED_INT, (void*)(6 * sizeof(GLuint)), 400);
         glBindVertexArray(0);
     }
     void Renderer::Close()

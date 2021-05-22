@@ -1,4 +1,4 @@
-#CMC_graphics_animation
+# CMC_graphics_animation
 
 CMC LMSU computer graphics course task.
 

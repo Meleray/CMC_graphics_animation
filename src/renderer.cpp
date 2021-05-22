@@ -87,7 +87,11 @@ const int FLAGW = 24;
         width = w;
         height = h;
 
-        GLfloat vertices[8*3 + FLAGH * FLAGW * 3] = {
+        GLfloat vertices[12*3 + FLAGH * FLAGW * 3] = {
+            -1.5f, 0.f, -1.5f,
+            18.f, 0.f, -1.5f,
+            -1.5f, 0.f, 15.f,
+            18.f, 0.f, 15.f,
             0.f, 0.f, 0.f,
             0.1f, 0.f, 0.f, 
             0.f, 0.f, 0.1f,
@@ -101,30 +105,30 @@ const int FLAGW = 24;
         for (int i = 0; i < FLAGH * FLAGW; ++i) {
             int col = i / FLAGH;
             int row = i % FLAGH;
-            vertices[3 * i + 8 * 3] =  -FLAG_LENGTH / (FLAGW - 1) * col;
-            vertices[3 * i + 8 * 3 + 1] =  1.0f + 0.5f / (FLAGH - 1) * row;
-            vertices[3 * i + 8 * 3 + 2] =  0.05f;
+            vertices[3 * i + 12 * 3] =  -FLAG_LENGTH / (FLAGW - 1) * col;
+            vertices[3 * i + 12 * 3 + 1] =  1.0f + 0.5f / (FLAGH - 1) * row;
+            vertices[3 * i + 12 * 3 + 2] =  0.05f;
         }
 
-        GLuint indices[(FLAGH - 1) * (FLAGW - 1) * 2 * 3 + 6 * 2 * 3] = {
-            0, 1, 3,
-            0, 2, 3,
+        GLuint indices[(FLAGH - 1) * (FLAGW - 1) * 2 * 3 + 7 * 2 * 3] = {
+            0, 1, 2,
+            1, 2, 3,
             4, 5, 7,
             4, 6, 7,
-            0, 1, 5,
-            0, 4, 5,
-            0, 2, 4,
-            2, 4, 6,
-            1, 3, 5,
-            3, 5, 7,
-            3, 2, 6,
-            3, 6, 7,
             8, 9, 11,
             8, 10, 11,
+            4, 5, 9,
+            4, 8, 9,
+            4, 6, 8,
+            6, 8, 10,
+            5, 7, 9,
+            7, 9, 11,
+            7, 6, 10,
+            7, 10, 11,
         };
 
         for (int i = 0; i < (FLAGH - 1) * (FLAGW - 1); ++i) {
-            int offs = 6 * i + 6 * 2 * 3;
+            int offs = 6 * i + 7 * 2 * 3;
             int vid = 8 + i + i / (FLAGH - 1);
 
             indices[offs] = vid;
@@ -136,7 +140,11 @@ const int FLAGW = 24;
             indices[offs + 5] = vid + FLAGH + 1;
         }
 
-        GLfloat g_color_buffer_data[8*3 + FLAGH * FLAGW * 3] = {
+        GLfloat g_color_buffer_data[12*3 + FLAGH * FLAGW * 3] = {
+            0.f, 0.4f, 0.f,
+            0.f, 0.4f, 0.f,
+            0.f, 0.4f, 0.f,
+            0.f, 0.4f, 0.f,
             0.4f, 0.2f, 0.1f,
             0.4f, 0.2f, 0.1f,
             0.4f, 0.2f, 0.1f,
@@ -149,18 +157,22 @@ const int FLAGW = 24;
 
 
         for (int i = 0; i < FLAGH * FLAGW; ++i) {
-            g_color_buffer_data[3 * i + 8 * 3] = 1.f;
-            g_color_buffer_data[3 * i + 8 * 3 + 1] = 1.f;
-            g_color_buffer_data[3 * i + 8 * 3 + 2] = 1.f;
+            g_color_buffer_data[3 * i + 12 * 3] = 1.f;
+            g_color_buffer_data[3 * i + 12 * 3 + 1] = 1.f;
+            g_color_buffer_data[3 * i + 12 * 3 + 2] = 1.f;
         }
 
-        GLint vtype[8 + FLAGH * FLAGW] = {0, 0, 0, 0, 0, 0, 0, 0};
+        GLint vtype[12 + FLAGH * FLAGW] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
         for (int i = 0; i < FLAGH * FLAGW; ++i) {
-            vtype[i + 8] = 1;
+            vtype[i + 12] = 1;
         }
 
-        GLfloat texCoord[8*2 + FLAGH * FLAGW * 2] = {
+        GLfloat texCoord[12*2 + FLAGH * FLAGW * 2] = {
+            0.f, 0.f,
+            0.f, 0.f,
+            0.f, 0.f,
+            0.f, 0.f,
             0.f, 0.f,
             0.f, 0.f,
             0.f, 0.f,
@@ -174,8 +186,8 @@ const int FLAGW = 24;
         for (int i = 0; i < FLAGH * FLAGW; ++i) {
             int col = i / FLAGH;
             int row = i % FLAGH;
-            texCoord[2 * i + 8 * 2] = col * 1.0f / (FLAGW - 1);
-            texCoord[2 * i + 8 * 2 + 1] = 1 - row * 1.0f / (FLAGH - 1);
+            texCoord[2 * i + 12 * 2] = col * 1.0f / (FLAGW - 1);
+            texCoord[2 * i + 12 * 2 + 1] = 1 - row * 1.0f / (FLAGH - 1);
         }
 
 
@@ -255,7 +267,8 @@ const int FLAGW = 24;
         glUniform1f(glGetUniformLocation(shaderProgram, "time"), dtime - (floor((float)dtime / (2 * M_PI)) * 2 * M_PI));
         glBindTexture(GL_TEXTURE_2D, texture);
         glBindVertexArray(VAO);
-        glDrawElementsInstanced(GL_TRIANGLES, (FLAGH - 1) * (FLAGW - 1) * 2 * 3 + 6 * 2 * 3, GL_UNSIGNED_INT, 0, 120);
+        glDrawElements(GL_TRIANGLES, 2 * 3, GL_UNSIGNED_INT, 0);
+        glDrawElementsInstanced(GL_TRIANGLES, (FLAGH - 1) * (FLAGW - 1) * 2 * 3 + 6 * 2 * 3, GL_UNSIGNED_INT, (void*)(6 * sizeof(GLuint)), 120);
         glBindVertexArray(0);
     }
     void Renderer::Close()

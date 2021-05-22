@@ -13,7 +13,7 @@ uniform float time;
 
 void main()
 {
-    vec2 offs = vec2(gl_InstanceID / 10, gl_InstanceID % 10);
+    vec2 offs = vec2(gl_InstanceID / 45, gl_InstanceID % 45);
     if (type == 0) {
         gl_Position =  MVP * vec4(position.x + offs.x * 0.4, position.y, position.z + offs.y * 0.3, 1);
         fragmentColor = color;

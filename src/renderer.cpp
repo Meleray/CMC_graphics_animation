@@ -110,7 +110,7 @@ const int GRASSW = 11;
 
         for (int i = 0; i < (GRASSH - 1) * (GRASSW - 1); ++i) {
             int offs = 6 * i + 2 * 3;
-            int vid = 8 + i + i / (GRASSH - 1);
+            int vid = 4 + i + i / (GRASSH - 1);
 
             indices[offs] = vid;
             indices[offs + 1] = vid + GRASSH;
@@ -195,7 +195,7 @@ const int GRASSW = 11;
         glVertexAttribPointer(3, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(GLfloat), (GLvoid*)0);
 
         int wi, he, ch;
-        unsigned char* image = stbi_load("assets/grass.png", &wi, &he, &ch, 4);
+        unsigned char* image = stbi_load("assets/grass.png", &wi, &he, &ch, STBI_rgb_alpha);
         if (image == NULL)
             std::cout << "Cannot load texture\n";
         std::cout << stbi_failure_reason() << '\n';
@@ -216,8 +216,9 @@ const int GRASSW = 11;
     {
         glm::mat4 Projection = glm::perspective(glm::radians(45.0f), (float) width / (float)height, 0.1f, 100.0f);
         glm::mat4 View = glm::lookAt(
-            glm::vec3(0, 2, -3),
-            glm::vec3(0,0,0),
+            //glm::vec3(8, 20, -5),
+            glm::vec3(8, 3, -6),
+            glm::vec3(8,0,5),
             glm::vec3(0,1,0)
         );
         glm::mat4 Model = glm::mat4(1.0f);
@@ -233,7 +234,7 @@ const int GRASSW = 11;
         glBindTexture(GL_TEXTURE_2D, texture);
         glBindVertexArray(VAO);
         glDrawElements(GL_TRIANGLES, 2 * 3, GL_UNSIGNED_INT, 0);
-        glDrawElementsInstanced(GL_TRIANGLES, (GRASSH - 1) * (GRASSW - 1) * 2 * 3, GL_UNSIGNED_INT, (void*)(6 * sizeof(GLuint)), 400);
+        glDrawElementsInstanced(GL_TRIANGLES, (GRASSH - 1) * (GRASSW - 1) * 2 * 3, GL_UNSIGNED_INT, (void*)(6 * sizeof(GLuint)), 2000);
         glBindVertexArray(0);
     }
     void Renderer::Close()

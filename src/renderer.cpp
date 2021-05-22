@@ -7,10 +7,12 @@
 #include <glm/gtx/transform.hpp>
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb/stb_image.h>
+#include <SOIL/SOIL.h>
 
-const float FLAG_LENGTH = 0.8;
-const int FLAGH = 15;
-const int FLAGW = 24;
+const float GRASS_HEIGHT = 0.8;
+const float GRASS_WIDTH = 0.4;
+const int GRASSH = 16;
+const int GRASSW = 11;
 
     int add_shader(std::string fileName, GLuint shaderProgram, GLenum shaderType)
     {
@@ -87,107 +89,71 @@ const int FLAGW = 24;
         width = w;
         height = h;
 
-        GLfloat vertices[12*3 + FLAGH * FLAGW * 3] = {
+        GLfloat vertices[4 * 3 + GRASSH * GRASSW * 3] = {
             -1.5f, 0.f, -1.5f,
             18.f, 0.f, -1.5f,
             -1.5f, 0.f, 15.f,
             18.f, 0.f, 15.f,
-            0.f, 0.f, 0.f,
-            0.1f, 0.f, 0.f, 
-            0.f, 0.f, 0.1f,
-            0.1f,  0.f, 0.1f,
-            0.f, 1.5f, 0.f,
-            0.1f, 1.5f, 0.f, 
-            0.f, 1.5f, 0.1f,
-            0.1f, 1.5f, 0.1f,
         };
 
-        for (int i = 0; i < FLAGH * FLAGW; ++i) {
-            int col = i / FLAGH;
-            int row = i % FLAGH;
-            vertices[3 * i + 12 * 3] =  -FLAG_LENGTH / (FLAGW - 1) * col;
-            vertices[3 * i + 12 * 3 + 1] =  1.0f + 0.5f / (FLAGH - 1) * row;
-            vertices[3 * i + 12 * 3 + 2] =  0.05f;
+        for (int i = 0; i < GRASSH * GRASSW; ++i) {
+            int col = i / GRASSH;
+            int row = i % GRASSH;
+            vertices[3 * i + 4 * 3] =  -GRASS_WIDTH / (GRASSW - 1) * col;
+            vertices[3 * i + 4 * 3 + 1] =  GRASS_HEIGHT / (GRASSH - 1) * row;
+            vertices[3 * i + 4 * 3 + 2] =  0.f;
         }
 
-        GLuint indices[(FLAGH - 1) * (FLAGW - 1) * 2 * 3 + 7 * 2 * 3] = {
+        GLuint indices[(GRASSH - 1) * (GRASSW - 1) * 2 * 3 + 2 * 3] = {
             0, 1, 2,
-            1, 2, 3,
-            4, 5, 7,
-            4, 6, 7,
-            8, 9, 11,
-            8, 10, 11,
-            4, 5, 9,
-            4, 8, 9,
-            4, 6, 8,
-            6, 8, 10,
-            5, 7, 9,
-            7, 9, 11,
-            7, 6, 10,
-            7, 10, 11,
+            1, 2, 3
         };
 
-        for (int i = 0; i < (FLAGH - 1) * (FLAGW - 1); ++i) {
-            int offs = 6 * i + 7 * 2 * 3;
-            int vid = 8 + i + i / (FLAGH - 1);
+        for (int i = 0; i < (GRASSH - 1) * (GRASSW - 1); ++i) {
+            int offs = 6 * i + 2 * 3;
+            int vid = 8 + i + i / (GRASSH - 1);
 
             indices[offs] = vid;
-            indices[offs + 1] = vid + FLAGH;
-            indices[offs + 2] = vid + FLAGH + 1;
+            indices[offs + 1] = vid + GRASSH;
+            indices[offs + 2] = vid + GRASSH + 1;
 
             indices[offs + 3] = vid;
             indices[offs + 4] = vid + 1;
-            indices[offs + 5] = vid + FLAGH + 1;
+            indices[offs + 5] = vid + GRASSH + 1;
         }
 
-        GLfloat g_color_buffer_data[12*3 + FLAGH * FLAGW * 3] = {
+        GLfloat g_color_buffer_data[4*3 + GRASSH * GRASSW * 3] = {
             0.f, 0.4f, 0.f,
             0.f, 0.4f, 0.f,
             0.f, 0.4f, 0.f,
-            0.f, 0.4f, 0.f,
-            0.4f, 0.2f, 0.1f,
-            0.4f, 0.2f, 0.1f,
-            0.4f, 0.2f, 0.1f,
-            0.4f, 0.2f, 0.1f,
-            0.4f, 0.2f, 0.1f,
-            0.4f, 0.2f, 0.1f,
-            0.4f, 0.2f, 0.1f,
-            0.4f, 0.2f, 0.1f,
+            0.f, 0.4f, 0.f
         };
 
 
-        for (int i = 0; i < FLAGH * FLAGW; ++i) {
-            g_color_buffer_data[3 * i + 12 * 3] = 1.f;
-            g_color_buffer_data[3 * i + 12 * 3 + 1] = 1.f;
-            g_color_buffer_data[3 * i + 12 * 3 + 2] = 1.f;
+        for (int i = 0; i < GRASSH * GRASSW; ++i) {
+            g_color_buffer_data[3 * i + 4 * 3] = 1.f;
+            g_color_buffer_data[3 * i + 4 * 3 + 1] = 1.f;
+            g_color_buffer_data[3 * i + 4 * 3 + 2] = 1.f;
         }
 
-        GLint vtype[12 + FLAGH * FLAGW] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        GLint vtype[4 + GRASSH * GRASSW] = {0, 0, 0, 0};
 
-        for (int i = 0; i < FLAGH * FLAGW; ++i) {
-            vtype[i + 12] = 1;
+        for (int i = 0; i < GRASSH * GRASSW; ++i) {
+            vtype[i + 4] = 1;
         }
 
-        GLfloat texCoord[12*2 + FLAGH * FLAGW * 2] = {
+        GLfloat texCoord[4*2 + GRASSH * GRASSW * 2] = {
             0.f, 0.f,
             0.f, 0.f,
             0.f, 0.f,
-            0.f, 0.f,
-            0.f, 0.f,
-            0.f, 0.f,
-            0.f, 0.f,
-            0.f, 0.f,
-            0.f, 0.f,
-            0.f, 0.f,
-            0.f, 0.f,
-            0.f, 0.f,
+            0.f, 0.f
         };
 
-        for (int i = 0; i < FLAGH * FLAGW; ++i) {
-            int col = i / FLAGH;
-            int row = i % FLAGH;
-            texCoord[2 * i + 12 * 2] = col * 1.0f / (FLAGW - 1);
-            texCoord[2 * i + 12 * 2 + 1] = 1 - row * 1.0f / (FLAGH - 1);
+        for (int i = 0; i < GRASSH * GRASSW; ++i) {
+            int col = i / GRASSH;
+            int row = i % GRASSH;
+            texCoord[2 * i + 4 * 2] = col * 1.0f / (GRASSW - 1);
+            texCoord[2 * i + 4 * 2 + 1] = 1 - row * 1.0f / (GRASSH - 1);
         }
 
 
@@ -230,14 +196,14 @@ const int FLAGW = 24;
         glVertexAttribPointer(3, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(GLfloat), (GLvoid*)0);
 
         int wi, he, ch;
-        unsigned char* image = stbi_load("assets/russia-flag-medium.jpg", &wi, &he, &ch, STBI_rgb);
+        unsigned char* image = SOIL_load_image("assets/grass.png", &wi, &he, &ch, SOIL_LOAD_RGBA);
         if (image == NULL)
             std::cout << "Cannot load texture\n";
         std::cout << stbi_failure_reason() << '\n';
         glBindTexture(GL_TEXTURE_2D, texture);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, wi, he, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, wi, he, 0, GL_RGBA, GL_UNSIGNED_BYTE, image);
         glGenerateMipmap(GL_TEXTURE_2D);
 
     // 4. Отвязываем VAO (НЕ EBO)
@@ -251,8 +217,8 @@ const int FLAGW = 24;
     {
         glm::mat4 Projection = glm::perspective(glm::radians(45.0f), (float) width / (float)height, 0.1f, 100.0f);
         glm::mat4 View = glm::lookAt(
-            glm::vec3(8, 20, -14),
-            glm::vec3(8,0,6),
+            glm::vec3(0, 2, -3),
+            glm::vec3(0,0,0),
             glm::vec3(0,1,0)
         );
         glm::mat4 Model = glm::mat4(1.0f);
@@ -268,7 +234,7 @@ const int FLAGW = 24;
         glBindTexture(GL_TEXTURE_2D, texture);
         glBindVertexArray(VAO);
         glDrawElements(GL_TRIANGLES, 2 * 3, GL_UNSIGNED_INT, 0);
-        glDrawElementsInstanced(GL_TRIANGLES, (FLAGH - 1) * (FLAGW - 1) * 2 * 3 + 6 * 2 * 3, GL_UNSIGNED_INT, (void*)(6 * sizeof(GLuint)), 120);
+        glDrawElementsInstanced(GL_TRIANGLES, (GRASSH - 1) * (GRASSW - 1) * 2 * 3, GL_UNSIGNED_INT, (void*)(6 * sizeof(GLuint)), 120);
         glBindVertexArray(0);
     }
     void Renderer::Close()

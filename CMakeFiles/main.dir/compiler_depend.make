@@ -908,8 +908,11 @@ CMakeFiles/main.dir/src/renderer.cpp.o: src/renderer.cpp \
   /usr/include/glm/gtc/matrix_transform.inl \
   /usr/include/glm/gtx/transform.hpp \
   /usr/include/glm/gtx/transform.inl \
-  /usr/include/stb/stb_image.h
+  /usr/include/stb/stb_image.h \
+  /usr/include/SOIL/SOIL.h
 
+
+/usr/include/SOIL/SOIL.h:
 
 /usr/include/glm/ext/matrix_clip_space.hpp:
 
